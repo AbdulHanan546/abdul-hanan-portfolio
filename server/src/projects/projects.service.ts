@@ -33,8 +33,8 @@ export class ProjectsService implements OnModuleInit {
           'Utilized D3.js and React to provide dynamic, step-by-step execution flows to enhance algorithmic understanding.'
         ],
         tags: ['React', 'TypeScript', 'D3.js', 'TailwindCSS'],
-        githubLink: 'https://github.com/AbdulHanan546/dsa-visualizer',
-        liveDemoLink: 'https://dsa-visualizer-demo.vercel.app',
+        githubLink: 'https://github.com/AbdulHanan546/data-structure-visualizer.git',
+        liveDemoLink: 'https://data-structures-visualizer-ten.vercel.app/',
         featured: true,
       },
       {
@@ -46,6 +46,37 @@ export class ProjectsService implements OnModuleInit {
         ],
         tags: ['React', 'Node.js', 'Express', 'Socket.io', 'MERN Stack'],
         githubLink: 'https://github.com/AbdulHanan546/Cyber-Awareness',
+        featured: true,
+      },
+      {
+        title: 'AI Code Reviewing Agent',
+        description: 'An automated code review agent utilizing Large Language Models to analyze repository changes and provide feedback.',
+        bulletPoints: [
+          'Implemented model inferencing with DeepSeek-Coder to provide precise syntax, logic, and style improvement suggestions.',
+          'Formulated advanced prompt engineering strategies to direct the agent\'s focus on vulnerability detection and code optimization.'
+        ],
+        tags: ['Generative AI', 'DeepSeek-Coder', 'LLM', 'Python'],
+        featured: true,
+      },
+      {
+        title: 'Patient Readmission Classifier',
+        description: 'A Deep Learning model utilizing Recurrent Neural Networks (RNN) to predict patient readmission rates based on clinical history.',
+        bulletPoints: [
+          'Preprocessed and trained the classifier model on clean patient datasets, addressing class imbalance and sequence padding.',
+          'Implemented Recurrent Neural Networks (RNNs) to capture sequential patterns in clinical history for accurate prediction.'
+        ],
+        tags: ['Deep Learning', 'RNN', 'Python', 'NLP'],
+        featured: true,
+      },
+      {
+        title: 'TaskBazaar — Service Marketplace App',
+        description: 'A cross-platform mobile marketplace enabling users to post tasks and service providers to accept and complete them.',
+        bulletPoints: [
+          'Developed the mobile application using React Native to offer an intuitive and responsive cross-platform user experience.',
+          'Engineered real-time task matching and state updates, integrating a robust REST API backend.'
+        ],
+        tags: ['React Native', 'Node.js', 'Express', 'MongoDB'],
+        githubLink: 'https://github.com/AbdulHanan546/Taskbazaar.git',
         featured: true,
       }
     ]);

@@ -55,6 +55,32 @@ export class AiService {
         details: [
           'Built a web-based tool to visualize common data structures (Trees, Graphs, Stacks) and algorithms in real-time using D3.js and React.'
         ]
+      },
+      {
+        title: 'Cyber Awareness Project',
+        details: [
+          'Designed a synchronized interactive learning session system between instructors and students, allowing real-time presentation control.',
+          'Developed instructor controls to dynamically set and manage what slides, topics, or content students view on their screens in real-time.'
+        ]
+      },
+      {
+        title: 'AI Code Reviewing Agent',
+        details: [
+          'Implemented model inferencing with DeepSeek-Coder to provide precise syntax, logic, and style improvement suggestions.',
+          'Formulated advanced prompt engineering strategies to direct the agent\'s focus on vulnerability detection and code optimization.'
+        ]
+      },
+      {
+        title: 'Patient Readmission Classifier',
+        details: [
+          'Preprocessed and trained a classifier model on patient clinical history datasets to predict readmission rates using Recurrent Neural Networks (RNN).'
+        ]
+      },
+      {
+        title: 'TaskBazaar — Service Marketplace App',
+        details: [
+          'Developed a cross-platform mobile marketplace app in React Native enabling users to post tasks and service providers to accept them in real-time.'
+        ]
       }
     ]
   };

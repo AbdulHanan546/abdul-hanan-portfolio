@@ -71,7 +71,7 @@ const FALLBACK_PROJECTS: Project[] = [
       "Collaborated on a multi-modal learning architecture, integrating narrative-driven Story Mode with technical simulation modes.",
     ],
     tags: ["React", "TypeScript", "Three.js", "Next.js", "D3.js"],
-    githubLink: "https://github.com/AbdulHanan546/quantumverse",
+    githubLink: "https://github.com/m-ans-ishfaq/quantumverse.git",
     featured: true,
   },
   {
@@ -83,8 +83,8 @@ const FALLBACK_PROJECTS: Project[] = [
       "Utilized D3.js and React to provide dynamic, step-by-step execution flows to enhance algorithmic understanding.",
     ],
     tags: ["React", "TypeScript", "D3.js", "TailwindCSS"],
-    githubLink: "https://github.com/AbdulHanan546/dsa-visualizer",
-    liveDemoLink: "https://dsa-visualizer-demo.vercel.app",
+    githubLink: "https://github.com/AbdulHanan546/data-structure-visualizer.git",
+    liveDemoLink: "https://data-structures-visualizer-ten.vercel.app/",
     featured: true,
   },
   {
@@ -97,6 +97,40 @@ const FALLBACK_PROJECTS: Project[] = [
     ],
     tags: ["React", "Node.js", "Express", "Socket.io", "MERN Stack"],
     githubLink: "https://github.com/AbdulHanan546/Cyber-Awareness",
+    featured: true,
+  },
+  {
+    _id: "p4",
+    title: "AI Code Reviewing Agent",
+    description: "An automated code review agent utilizing Large Language Models to analyze repository changes and provide feedback.",
+    bulletPoints: [
+      "Implemented model inferencing with DeepSeek-Coder to provide precise syntax, logic, and style improvement suggestions.",
+      "Formulated advanced prompt engineering strategies to direct the agent's focus on vulnerability detection and code optimization.",
+    ],
+    tags: ["Generative AI", "DeepSeek-Coder", "LLM", "Python"],
+    featured: true,
+  },
+  {
+    _id: "p5",
+    title: "Patient Readmission Classifier",
+    description: "A Deep Learning model utilizing Recurrent Neural Networks (RNN) to predict patient readmission rates based on clinical history.",
+    bulletPoints: [
+      "Preprocessed and trained the classifier model on clean patient datasets, addressing class imbalance and sequence padding.",
+      "Implemented Recurrent Neural Networks (RNNs) to capture sequential patterns in clinical history for accurate prediction.",
+    ],
+    tags: ["Deep Learning", "RNN", "Python", "NLP"],
+    featured: true,
+  },
+  {
+    _id: "p6",
+    title: "TaskBazaar  Service Marketplace App",
+    description: "A cross-platform mobile marketplace enabling users to post tasks and service providers to accept and complete them.",
+    bulletPoints: [
+      "Developed the mobile application using React Native to offer an intuitive and responsive cross-platform user experience.",
+      "Engineered real-time task matching and state updates, integrating a robust REST API backend.",
+    ],
+    tags: ["React Native", "Node.js", "Express", "MongoDB"],
+    githubLink: "https://github.com/AbdulHanan546/Taskbazaar.git",
     featured: true,
   },
 ];
@@ -154,7 +188,7 @@ const ensureAbsoluteUrl = (url?: string) => {
 
 /* ════════════════════════════════════════════════════════════ */
 export default function Home() {
-  const API_BASE = "http://localhost:5000/api";
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
   /* Theme ──────────────────────────────────────────────────── */
   const [dark, setDark] = useState(true);
@@ -259,7 +293,15 @@ export default function Home() {
 
   /* ── Render ─────────────────────────────────────────────── */
   return (
-    <div style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }} className="flex flex-col min-h-screen transition-colors duration-300">
+    <div style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }} className="relative flex flex-col min-h-screen transition-colors duration-300 overflow-x-hidden">
+
+      {/* Ambient background glow blobs */}
+      <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[150px] opacity-15 pointer-events-none z-0"
+        style={{ background: "radial-gradient(circle, var(--brand-primary) 0%, transparent 70%)" }} />
+      <div className="absolute top-[35%] right-[-10%] w-[600px] h-[600px] rounded-full blur-[180px] opacity-15 pointer-events-none z-0"
+        style={{ background: "radial-gradient(circle, var(--brand-accent) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-[10%] left-[5%] w-[450px] h-[450px] rounded-full blur-[140px] opacity-10 pointer-events-none z-0"
+        style={{ background: "radial-gradient(circle, var(--brand-primary) 0%, transparent 70%)" }} />
 
       {/* ── NAVBAR ──────────────────────────────────────────── */}
       <header style={{ background: "var(--bg-card)", borderBottom: "1px solid var(--border)" }}
@@ -393,7 +435,7 @@ export default function Home() {
       </section>
 
       {/* ── SKILLS ──────────────────────────────────────────── */}
-      <section id="skills" style={{ background: "var(--bg-card2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}
+      <section id="skills"
         className="py-20 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-5">
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
@@ -518,7 +560,7 @@ export default function Home() {
       </section>
 
       {/* ── PROJECTS ────────────────────────────────────────── */}
-      <section id="projects" style={{ background: "var(--bg-card2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}
+      <section id="projects"
         className="py-20 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-5">
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
@@ -695,7 +737,7 @@ export default function Home() {
             <Brain className="h-4 w-4" style={{ color: "var(--brand-primary)" }} />
             <span>© 2026 Abdul Hanan. All rights reserved.</span>
           </div>
-          <span>Built with Next.js · NestJS · TypeScript · MongoDB</span>
+          <span>Built with TypeScript</span>
         </div>
       </footer>
 
