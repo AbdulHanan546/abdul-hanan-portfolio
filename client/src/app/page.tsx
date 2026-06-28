@@ -454,6 +454,74 @@ export default function Home() {
             <span>Available for Full Stack & Generative AI Roles</span>
           </motion.div>
 
+          {/* Name Greeting Animation */}
+          <motion.div
+            className="text-2xl md:text-3xl font-bold tracking-tight flex items-center flex-wrap gap-x-1"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.04,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.span
+              className="inline-block origin-[70%_70%] mr-2"
+              animate={{
+                rotate: [0, 14, -8, 14, -4, 10, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            >
+              👋
+            </motion.span>
+            
+            {"Hi, I am ".split("").map((char, index) => (
+              <motion.span
+                key={`greet-${index}`}
+                className="inline-block"
+                variants={{
+                  hidden: { opacity: 0, y: 12 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { type: "spring", damping: 12, stiffness: 150 }
+                  }
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+            
+            <span className="text-gradient font-extrabold ml-1">
+              {"Abdul Hanan".split("").map((char, index) => (
+                <motion.span
+                  key={`name-${index}`}
+                  className="inline-block"
+                  variants={{
+                    hidden: { opacity: 0, y: 12 },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { type: "spring", damping: 12, stiffness: 150 }
+                    }
+                  }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </span>
+          </motion.div>
+
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12]">
             Building the Future with{" "}
             <span className="text-gradient">Full Stack Engineering</span>
