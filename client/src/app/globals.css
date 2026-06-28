@@ -27,24 +27,24 @@
 
 /* Dark mode tokens */
 :root[data-theme="dark"] {
-  --brand-primary: #6366f1;       /* Electric Indigo */
-  --brand-hover:   #4f46e5;
-  --brand-accent:  #06b6d4;       /* Neon Cyan */
-  --brand-muted:   #3b82f6;
+  --brand-primary: #3b82f6;       /* Sapphire Blue */
+  --brand-hover:   #2563eb;
+  --brand-accent:  #60a5fa;       /* Soft Blue */
+  --brand-muted:   #1d4ed8;
 
-  --bg:            #0f172a;       /* Slate 900 background */
-  --bg-card:       rgba(30, 41, 59, 0.7);  /* Translucent Slate 800 */
-  --bg-card2:      rgba(15, 23, 42, 0.6);  /* Translucent Slate 900 */
-  --border:        rgba(99, 102, 241, 0.2); /* Slightly higher visibility border */
-  --border-strong: rgba(99, 102, 241, 0.35);
-  --text-primary:  #f3f4f6;       /* Brightened for contrast */
-  --text-secondary:#cbd5e1;       /* Brightened for readability */
-  --text-muted:    #94a3b8;
+  --bg:            #0b0f19;       /* Deep Midnight Slate background */
+  --bg-card:       #131924;       /* Solid dark card background */
+  --bg-card2:      #1e293b;       /* Solid Slate 800 background */
+  --border:        #1e293b;       /* Thin, crisp Slate 800 borders */
+  --border-strong: #334155;       /* Slate 700 borders */
+  --text-primary:  #f8fafc;       /* Crisp Slate 50 text */
+  --text-secondary:#cbd5e1;       /* Readable Slate 300 text */
+  --text-muted:    #94a3b8;       /* Slate 400 text */
 
-  --shadow-sm:  0 1px 3px 0 rgba(0,0,0,.6);
-  --shadow-md:  0 4px 6px -1px rgba(0,0,0,.7);
-  --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.8);
-  --shadow-xl:  0 20px 25px -5px rgba(0,0,0,.9);
+  --shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.6);
+  --shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.7);
+  --shadow-xl:  0 20px 25px -5px rgba(0, 0, 0, 0.8);
 }
 
 /* ─────────────── Base Reset ─────────────── */
@@ -80,13 +80,12 @@ h1, h2, h3, h4, h5, h6 {
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
-  backdrop-filter: blur(12px);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   border-color: var(--brand-primary);
   transform: translateY(-2px);
 }
