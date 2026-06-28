@@ -214,6 +214,13 @@ export default function Home() {
 
   useEffect(() => {
     const load = async () => {
+      const isLocalhost = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+      const hasProdApi = !!process.env.NEXT_PUBLIC_API_URL;
+      
+      if (!hasProdApi && !isLocalhost) {
+        return;
+      }
+      
       try {
         const [pr, er] = await Promise.all([
           fetch(`${API_BASE}/projects`),
@@ -244,6 +251,29 @@ export default function Home() {
     setMsgs(p => [...p, { sender: "user", text: txt }]);
     setChatInput("");
     setChatLoading(true);
+    const isLocalhost = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+    const hasProdApi = !!process.env.NEXT_PUBLIC_API_URL;
+
+    if (!hasProdApi && !isLocalhost) {
+      const lower = txt.toLowerCase();
+      let reply = "";
+      if (lower.includes("skill") || lower.includes("stack"))
+        reply = "Abdul specialises in the **MERN Stack**, **Next.js**, **NestJS**, and **Generative AI** (LangChain, RAG, LLM fine-tuning, Agentic AI).";
+      else if (lower.includes("experience") || lower.includes("intern"))
+        reply = "He interned at **GAIRL** (Generative AI — code-review agents, LLM fine-tuning) and **CodeCelix** (Full Stack — React Native, MERN SaaS, AI automation).";
+      else if (lower.includes("project"))
+        reply = "His projects include **Quantumverse** (quantum physics simulator), **DSA Visualizer** (D3.js algorithm animations), and a **Cyber Awareness Platform** (real-time WebSocket sessions).";
+      else if (lower.includes("contact") || lower.includes("email"))
+        reply = "Reach Abdul at **abdlhanan987@gmail.com** or call **+92 322 5713987**.";
+      else
+        reply = "Ask me about Abdul's **skills**, **experience**, **projects**, or **contact** details!";
+      setTimeout(() => {
+        setMsgs(p => [...p, { sender: "ai", text: reply }]);
+        setChatLoading(false);
+      }, 400);
+      return;
+    }
+
     try {
       const res = await fetch(`${API_BASE}/ai/chat`, {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -278,13 +308,19 @@ export default function Home() {
   const submitContact = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("sending");
-    try {
-      const res = await fetch(`${API_BASE}/contact`, {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error();
-    } catch { /* graceful */ }
+    const isLocalhost = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+    const hasProdApi = !!process.env.NEXT_PUBLIC_API_URL;
+
+    if (hasProdApi || isLocalhost) {
+      try {
+        const res = await fetch(`${API_BASE}/contact`, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        if (!res.ok) throw new Error();
+      } catch { /* graceful */ }
+    }
+
     setTimeout(() => {
       setFormStatus("success");
       setForm({ name: "", email: "", message: "" });
