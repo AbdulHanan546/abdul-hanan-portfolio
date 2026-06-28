@@ -32,11 +32,11 @@
   --brand-accent:  #06b6d4;       /* Neon Cyan */
   --brand-muted:   #3b82f6;
 
-  --bg:            #080710;       /* Obsidian dark background */
-  --bg-card:       rgba(13, 17, 28, 0.7);  /* Translucent glass */
-  --bg-card2:      rgba(20, 26, 42, 0.6);
-  --border:        rgba(99, 102, 241, 0.15); /* Tinted subtle borders */
-  --border-strong: rgba(99, 102, 241, 0.3);
+  --bg:            #0f172a;       /* Slate 900 background */
+  --bg-card:       rgba(30, 41, 59, 0.7);  /* Translucent Slate 800 */
+  --bg-card2:      rgba(15, 23, 42, 0.6);  /* Translucent Slate 900 */
+  --border:        rgba(99, 102, 241, 0.2); /* Slightly higher visibility border */
+  --border-strong: rgba(99, 102, 241, 0.35);
   --text-primary:  #f3f4f6;       /* Brightened for contrast */
   --text-secondary:#cbd5e1;       /* Brightened for readability */
   --text-muted:    #94a3b8;

@@ -20,6 +20,7 @@ import {
   Sun,
   Moon,
   Shield,
+  Menu,
 } from "lucide-react";
 
 /* ── Custom brand SVG icons ─────────────────────────────────── */
@@ -192,6 +193,7 @@ export default function Home() {
 
   /* Theme ──────────────────────────────────────────────────── */
   const [dark, setDark] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -389,8 +391,43 @@ export default function Home() {
             <a href="#contact" className="btn-primary !py-2 !px-4 !text-xs">
               Hire Me
             </a>
+            {/* Mobile Menu Toggle */}
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle mobile menu"
+              style={{ background: "var(--bg-card2)", border: "1.5px solid var(--border)", color: "var(--text-secondary)" }}
+              className="p-2 rounded-lg hover:text-[var(--brand-primary)] hover:border-[var(--brand-primary)] transition-all md:hidden z-50">
+              {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden w-full overflow-hidden"
+              style={{ background: "var(--bg-card)", borderTop: "1px solid var(--border)" }}>
+              <nav className="flex flex-col px-5 py-4 gap-4">
+                {["About", "Skills", "Experience", "Projects", "Contact"].map(link => (
+                  <a key={link} href={`#${link.toLowerCase()}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-sm font-semibold hover:text-[var(--brand-primary)] transition-colors py-1.5"
+                    style={{ color: "var(--text-secondary)" }}>
+                    {link}
+                  </a>
+                ))}
+                <a href="/Abdul_Hanan_CV.pdf" download="Abdul_Hanan_CV.pdf"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="btn-ghost !py-2 !px-3 !text-xs inline-flex items-center justify-center gap-2 max-w-xs mt-2">
+                  <Download className="h-3.5 w-3.5" /> Download CV
+                </a>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* ── HERO ────────────────────────────────────────────── */}
@@ -610,8 +647,11 @@ export default function Home() {
               {projects.map((proj) => {
                 const icon =
                   proj.title.toLowerCase().includes("quantum") ? "⚛️" :
-                    proj.title.toLowerCase().includes("data") ? "📊" :
-                      proj.title.toLowerCase().includes("cyber") ? "🛡️" : "💡";
+                  proj.title.toLowerCase().includes("data") ? "📊" :
+                  proj.title.toLowerCase().includes("cyber") ? "🛡️" :
+                  proj.title.toLowerCase().includes("review") || proj.title.toLowerCase().includes("agent") ? "🤖" :
+                  proj.title.toLowerCase().includes("patient") || proj.title.toLowerCase().includes("classifier") ? "🧠" :
+                  proj.title.toLowerCase().includes("taskbazaar") || proj.title.toLowerCase().includes("marketplace") ? "🛍️" : "💡";
                 return (
                   <motion.div key={proj._id} variants={fadeUp}
                     className="card flex flex-col overflow-hidden group">
