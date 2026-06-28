@@ -329,6 +329,17 @@ export default function Home() {
     }, 800);
   };
 
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    setTimeout(() => {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
+  };
+
   /* ── Render ─────────────────────────────────────────────── */
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }} className="relative flex flex-col min-h-screen transition-colors duration-300 overflow-x-hidden">
@@ -413,7 +424,7 @@ export default function Home() {
               <nav className="flex flex-col px-5 py-4 gap-4">
                 {["About", "Skills", "Experience", "Projects", "Contact"].map(link => (
                   <a key={link} href={`#${link.toLowerCase()}`}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleMobileNavClick(e, link.toLowerCase())}
                     className="text-sm font-semibold hover:text-[var(--brand-primary)] transition-colors py-1.5"
                     style={{ color: "var(--text-secondary)" }}>
                     {link}
